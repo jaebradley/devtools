@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "es6",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "rootDir": "./src/",
+    "baseUrl": "./src/",
+    "paths": {
+      "Components/*": ["./src/components/*"],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
