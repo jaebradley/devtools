@@ -1,9 +1,9 @@
 const merge = require('webpack-merge');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const WebpackBuildNotifier = require('webpack-build-notifier');
-// const {
-//   BundleAnalyzerPlugin,
-// } = require('webpack-bundle-analyzer');
+const {
+  BundleAnalyzerPlugin,
+} = require('webpack-bundle-analyzer');
 
 const common = require('./webpack.config.common');
 
@@ -16,7 +16,7 @@ module.exports = merge.smart(
       historyApiFallback: true,
     },
     plugins: [
-      // new BundleAnalyzerPlugin(),
+      new BundleAnalyzerPlugin(),
       new WebpackBuildNotifier({
         title: 'Devtools Build',
       }),

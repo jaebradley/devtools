@@ -14,8 +14,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import theme from './theme';
 
-import Section from './containers/Section';
-import Clipboard from './containers/Clipboard';
+import Encoding from './containers/Encoding';
 import rootSaga from './sagas';
 import reducer from './reducer';
 
@@ -36,8 +35,7 @@ const App = () => (
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <div>
-        <Section />
-        <Clipboard />
+        <Encoding />
       </div>
     </MuiThemeProvider>
   </Provider>

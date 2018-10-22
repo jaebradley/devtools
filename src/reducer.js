@@ -5,15 +5,24 @@ import {
 import shortid from 'shortid';
 
 import Item from './data/Item';
+import EncodedValue from './data/EncodedValue';
 import {
   ADD_TO_CLIPBOARD,
   REMOVE_FROM_CLIPBOARD,
-  UPDATE_DISPLAY_VALUE,
+  UPDATE_ENCODED_VALUE,
 } from './actionTypes';
+import {
+  ENCODING_TYPE,
+} from './constants';
 
 const initialState = new Map({
   clipboard: new OrderedMap(),
-  displayValue: '',
+  encodedValue: new EncodedValue({
+    startType: ENCODING_TYPE.TEXT,
+    endType: ENCODING_TYPE.BASE_64,
+    startValue: '',
+    endValue: '',
+  }),
 });
 
 const app = (state = initialState, action) => {
@@ -30,8 +39,8 @@ const app = (state = initialState, action) => {
       return state.set('clipboard', state.get('clipboard').delete(action.payload.id));
     }
 
-    case UPDATE_DISPLAY_VALUE: {
-      return state.set('displayValue', action.payload.displayValue);
+    case UPDATE_ENCODED_VALUE: {
+      return state.set('encodedValue', new EncodedValue(action.payload));
     }
 
     default: {
